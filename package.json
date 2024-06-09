@@ -1,0 +1,33 @@
+{
+  "name": "lw-ffmpeg-bun",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "dts-bundle-generator": "^9.5.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "build": "bun build --minify --sourcemap --target=bun --outdir dist src/index.ts && bun run compile-declaration",
+    "compile-declaration": "dts-bundle-generator --out-file dist/index.d.ts --project ./tsconfig.json --no-check src/index.ts"
+  },
+  "version": "1.0.1",
+  "author": "aadilmallick",
+  "keywords": [
+    "ffmpeg",
+    "bun"
+  ],
+  "license": "MIT",
+  "description": "A bun wrapper for ffmpeg",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aadilmallick/lw-ffmpeg-bun.git"
+  }
+}
